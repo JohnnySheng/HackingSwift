@@ -18,6 +18,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = selectedImage
+        
+        navigationItem.largeTitleDisplayMode = .never
+        
         if let imageToLoad = selectedImage {
             imageView.image  = UIImage(named: imageToLoad)
         }
@@ -25,6 +29,22 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnTap = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnTap = false
+    }
+    
+    //espercially for iPhone X, there is always home indicator on the bottom of the screen.
+    override func prefersHomeIndicatorAutoHidden() -> Bool {
+        return navigationController?.hidesBarsOnTap ?? false
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

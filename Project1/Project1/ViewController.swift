@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
 //this is commited from xcode
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view, typically from a nib.
         let fm = FileManager.default
         let pathString = Bundle.main.resourcePath
@@ -55,6 +57,7 @@ class ViewController: UITableViewController {
         }
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
