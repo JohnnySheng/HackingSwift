@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
     
     var pictures = [String]()
     
-
+//this is commited from xcode
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,6 +25,7 @@ class ViewController: UITableViewController {
                 if item.hasPrefix("nssl") {
                     // this is a picture to load!
                     pictures.append(item)
+                    
                 }
             }
         }else{
