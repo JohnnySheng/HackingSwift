@@ -12,6 +12,7 @@
 		B33FC36B213E1A4A0025582A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33FC369213E1A4A0025582A /* Main.storyboard */; };
 		B33FC36D213E1A4C0025582A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B33FC36C213E1A4C0025582A /* Assets.xcassets */; };
 		B33FC370213E1A4C0025582A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33FC36E213E1A4C0025582A /* LaunchScreen.storyboard */; };
+		B33FC378213E223E0025582A /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = B33FC377213E223E0025582A /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B33FC36C213E1A4C0025582A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B33FC36F213E1A4C0025582A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B33FC371213E1A4C0025582A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B33FC377213E223E0025582A /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		B33FC364213E1A4A0025582A /* Project5 */ = {
 			isa = PBXGroup;
 			children = (
+				B33FC377213E223E0025582A /* start.txt */,
 				B33FC365213E1A4A0025582A /* AppDelegate.swift */,
 				B33FC367213E1A4A0025582A /* ViewController.swift */,
 				B33FC369213E1A4A0025582A /* Main.storyboard */,
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B33FC370213E1A4C0025582A /* LaunchScreen.storyboard in Resources */,
+				B33FC378213E223E0025582A /* start.txt in Resources */,
 				B33FC36D213E1A4C0025582A /* Assets.xcassets in Resources */,
 				B33FC36B213E1A4A0025582A /* Main.storyboard in Resources */,
 			);
