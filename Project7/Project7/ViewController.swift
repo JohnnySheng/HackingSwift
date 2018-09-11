@@ -17,7 +17,14 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+//        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        let urlString: String
+        
+        if navigationController?.tabBarItem.tag == 0 {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        } else {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+        }
         
         if let url = URL(string: urlString) {
             if let data = try? String(contentsOf: url) {
@@ -26,10 +33,23 @@ class ViewController: UITableViewController {
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                     // we're OK to parse!
                     self.parse(json: json)
+                    return
                     
+                }else{
+                    showError()
                 }
+            }else{
+                showError()
             }
+        }else{
+            showError()
         }
+    }
+    
+    func showError() {
+        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 
     func parse(json: JSON) {
@@ -61,6 +81,12 @@ class ViewController: UITableViewController {
         cell.detailTextLabel?.text = petition["body"]
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = DetailViewController()
+        detailsVC.detailItem = petitions[indexPath.row]
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 
