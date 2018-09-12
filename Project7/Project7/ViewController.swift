@@ -18,33 +18,54 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-        let urlString: String
+//        let urlString: String
+//
+//        if navigationController?.tabBarItem.tag == 0 {
+//            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+//        } else {
+//            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+//        }
+//
+//        if let url = URL(string: urlString) {
+//            if let data = try? String(contentsOf: url) {
+//                let json = JSON(parseJSON: data)
+//
+//                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+//                    // we're OK to parse!
+//                    self.parse(json: json)
+//                    return
+//
+//                }else{
+//                    showError()
+//                }
+//            }else{
+//                showError()
+//            }
+//        }else{
+//            showError()
+//        }
         
-        if navigationController?.tabBarItem.tag == 0 {
-            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-        } else {
-            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
-        }
+        let number = generateRandomNumber(numDigits: 4)
+        print(number)
         
-        if let url = URL(string: urlString) {
-            if let data = try? String(contentsOf: url) {
-                let json = JSON(parseJSON: data)
-                
-                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    // we're OK to parse!
-                    self.parse(json: json)
-                    return
-                    
-                }else{
-                    showError()
-                }
-            }else{
-                showError()
-            }
-        }else{
-            showError()
-        }
     }
+    
+    func generateRandomNumber(numDigits:Int) -> Int {
+        var place  = 1
+        var finalNumber = 0
+        
+        for i in 0 ..< numDigits {
+            var randomNumber = Int(arc4random_uniform(10))
+            while (i == numDigits - 1 && randomNumber == 0){
+                randomNumber = Int(arc4random_uniform(10))
+            }
+            print(randomNumber)
+            finalNumber += randomNumber * place
+            place *= 10
+        }
+        return finalNumber
+    }
+    
     
     func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
