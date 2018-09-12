@@ -19,7 +19,6 @@ class MyCalculator: NSObject {
             while (i == numDigits - 1 && randomNumber == 0){
                 randomNumber = Int(arc4random_uniform(10))
             }
-            print(randomNumber)
             finalNumber += randomNumber * place
             place *= 10
         }
