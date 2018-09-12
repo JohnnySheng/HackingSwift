@@ -13,6 +13,7 @@
 		B392D2BF214911470004505C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B392D2BE214911470004505C /* Assets.xcassets */; };
 		B392D2C2214911470004505C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B392D2C0214911470004505C /* LaunchScreen.storyboard */; };
 		B392D2CA214911AC0004505C /* MyCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392D2C9214911AC0004505C /* MyCalculator.swift */; };
+		B392D2CC214919830004505C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392D2CB214919830004505C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B392D2C1214911470004505C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B392D2C3214911470004505C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B392D2C9214911AC0004505C /* MyCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCalculator.swift; sourceTree = "<group>"; };
+		B392D2CB214919830004505C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				B392D2B7214911450004505C /* AppDelegate.swift */,
 				B392D2B9214911450004505C /* ViewController.swift */,
 				B392D2C9214911AC0004505C /* MyCalculator.swift */,
+				B392D2CB214919830004505C /* DetailViewController.swift */,
 				B392D2BB214911450004505C /* Main.storyboard */,
 				B392D2BE214911470004505C /* Assets.xcassets */,
 				B392D2C0214911470004505C /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				B392D2CA214911AC0004505C /* MyCalculator.swift in Sources */,
 				B392D2BA214911450004505C /* ViewController.swift in Sources */,
 				B392D2B8214911450004505C /* AppDelegate.swift in Sources */,
+				B392D2CC214919830004505C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
