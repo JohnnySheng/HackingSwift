@@ -10,6 +10,7 @@ import UIKit
 
 class MyCalculator: NSObject {
 
+    //generate a random number with digits
     static func generateRandomNumber(numDigits:Int) -> Int {
         var place  = 1
         var finalNumber = 0
@@ -25,6 +26,7 @@ class MyCalculator: NSObject {
         return finalNumber
     }
     
+    //generate Bool
     static func randomBool() -> Bool {
         return arc4random_uniform(2) == 0
     }

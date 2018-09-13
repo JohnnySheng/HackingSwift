@@ -27,14 +27,18 @@ class ListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //add two bar buttons, right one is print, left one is renew
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Print", style: .plain, target: self, action: #selector(printTapped))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Renew", style: .plain, target: self, action: #selector(renewTapped))
-        
+    
+        //renew the first time
         renewTapped()
     }
     
     @objc func renewTapped(){
+        //generate two groups of numbers and the operator:plus and minus
         numbers1 = generateNumberArrays(anzahl: numberOfEquations)
         numbers2 = generateNumberArrays(anzahl: numberOfEquations)
         isAddition = generateBools(anzahl: numberOfEquations)
@@ -42,9 +46,9 @@ class ListViewController: UITableViewController {
         calculatorResults = [Int]()
         equations = [String]()
         answers = [String]()
-        //for Print
-        htmlString = "<body><ol><big>"
         
+        //html string is for Print
+        htmlString = "<body><ol><big>"
         for i in 0 ..< numberOfEquations {
             answers.append("")
             if(isAddition[i]){
@@ -61,10 +65,10 @@ class ListViewController: UITableViewController {
         
         for i in 0 ..< numberOfEquations {
             htmlString.append( "<li> \(equations[i]) </li>")
-            
         }
         htmlString.append("</big></ol></body>")
         
+        //reload data
         tableView.reloadData()
     }
     
@@ -86,6 +90,7 @@ class ListViewController: UITableViewController {
         printController.present(animated: true, completionHandler: nil)
     }
     
+    //generate an array with 3 digits
     func generateNumberArrays(anzahl: Int) -> [Int] {
         var results = [Int]()
         for _ in 0 ..< anzahl {
@@ -94,6 +99,7 @@ class ListViewController: UITableViewController {
         return results
     }
     
+    //generate an array with bool
     func generateBools(anzahl: Int) -> [Bool] {
         var results = [Bool]()
         for _ in 0 ..< anzahl {
@@ -102,17 +108,13 @@ class ListViewController: UITableViewController {
         return results
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return equations.count
     }
 
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EquationTableViewCell
         cell.equationLabel.text = equations[indexPath.row]
@@ -125,7 +127,6 @@ class ListViewController: UITableViewController {
         return cell
     }
     
-
     //The textfield will be changed with the textfield
     @objc func textFieldChanged (textField textfield: UITextField){
         let index = textfield.tag
@@ -137,7 +138,6 @@ class ListViewController: UITableViewController {
     }
     
     //According to the answer to show the background of textfield
-    
     func colorTextField(textField:UITextField, inputText:String, index:Int) {
         let inputedValue = Int(inputText)
         if (inputedValue != nil && inputedValue == calculatorResults[index]) {
@@ -145,6 +145,11 @@ class ListViewController: UITableViewController {
         }else{
             textField.backgroundColor = UIColor.red
         }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }
