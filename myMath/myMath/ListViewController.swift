@@ -29,7 +29,7 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Print", style: .plain, target: self, action: #selector(printTapped))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "renew", style: .plain, target: self, action: #selector(renewTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Renew", style: .plain, target: self, action: #selector(renewTapped))
         
         renewTapped()
     }
